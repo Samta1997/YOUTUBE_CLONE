@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
 import { CiSearch } from "react-icons/ci";
 import { MdVideoCall,MdNotifications } from "react-icons/md";
-import LeftSideBar from '../LeftSideBar/LeftSideBar';
-import LeftSideBar1 from '../LeftSideBar/LeftSideBar1';
 import { NavLink } from 'react-router-dom';
-const Navbar = () => {
+import SearchList from './SearchList';
+
+const Navbar = ({leftSideBar,setLeftSideBar}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const[leftSideBar, setLeftSideBar] = useState(false)
-  const [profile, setProfile]=useState(false)
-  const toggleSearch = () => {
-    setIsOpen(!isOpen);
-  };
+  const [profile, setProfile]=useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [seachListA, setSeachList] = useState(false);
+  let TitleArray=['video1','video2','vedio3'].filter(q=>q.includes(searchQuery))
+
   const showLeftSideBar=()=>{
     setLeftSideBar(!leftSideBar)
   };
+
+  const toggleSearch = () => {
+    setIsOpen(!isOpen);
+  };
+  
   const toggleProfile=()=>{
-    setProfile(!profile)
+    setProfile(!profile);
   }
   
   return (
@@ -59,7 +64,7 @@ const Navbar = () => {
                         <NavLink to={'/'}>
                             <img
                                 className="h-6 w-auto cursor-pointer"
-                                src="logo.jpg"
+                                src="logo.png"
                                 alt="Logo"
                             />
                         </NavLink>
@@ -68,11 +73,20 @@ const Navbar = () => {
                 {/* Search Bar */}
                 <div className='flex sm:w-4/12 items-center' >    
                     <div className="flex w-full">
-                    <input
-                        type="text"
-                        placeholder="Search..."
-                        className="hidden md:block h-9 w-full px-6 pb-1 bg-white text-black rounded-l-full border border-white focus:outline-none focus:ring-1 focus:ring-indigo-300 focus:border-indigo-600 "
-                    />
+                        <div >
+                            <input
+                            type="text"
+                            onChange={(e)=>setSearchQuery(e.target.value)}
+                            onClick={(e)=>setSeachList(true)}
+                            placeholder="Search..."
+                            className="hidden md:block h-9 w-full px-6 pb-1 bg-white text-black rounded-l-full border border-white focus:outline-none focus:ring-1 focus:ring-indigo-300 focus:border-indigo-600 "
+                            />
+                        { 
+                            searchQuery&& seachListA &&
+                            <SearchList setSearchQuery={setSearchQuery} TitleArray={TitleArray}/>
+                        }
+                        </div>
+                   
                     <button className="hidden md:block h-9 text-xl bg-white text-black py-2 px-4 rounded-r-full border-3 border-grey-600">
                         <CiSearch className="h-6 w-8"/>
                     </button>
@@ -109,6 +123,8 @@ const Navbar = () => {
                             <input
                             type="text"
                             placeholder="Search..."
+                            onChange={(e)=>setSearchQuery(e.target.value)}
+                            onClick={(e)=>setSeachList(true)}
                             className="md:hidden h-9 w-full px-6 pb-1 text-white bg-black rounded-full border border-[#222222] focus:outline-none focus:ring-1 focus:ring-indigo-300 focus:border-indigo-600"
                         />
                         <CiSearch className='h-6 w-6'onClick={toggleSearch}/>
@@ -118,7 +134,7 @@ const Navbar = () => {
                 </div>
             </div>
         </div>
-        {leftSideBar ? <LeftSideBar/>:<LeftSideBar1/>}
+       
     </nav>
   );
 };

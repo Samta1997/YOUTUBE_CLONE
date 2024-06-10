@@ -18,7 +18,7 @@ const LeftSideBar = () => {
     }
 
   return (
-    <div className='text-white w-52 bg-[#0F0F0F] flex-col px-l-4 sm:px-6 lg:px-l-8 bg-black  text-sm font-sans-serif bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500'>
+    <div className='text-white inline-block w-[235px] flex-col px-l-4 sm:px-6 lg:px-l-8 text-sm font-sans-serif bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500'>
         <div className='flex-col'>
             <NavLink to={'/'}>
             <div 
