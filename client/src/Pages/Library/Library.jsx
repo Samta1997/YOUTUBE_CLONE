@@ -1,8 +1,12 @@
-import React from 'react'
+import LeftSideBar from "../../Components/LeftSideBar/LeftSideBar"
+import LeftSideBar1 from "../../Components/LeftSideBar/LeftSideBar1"
 
-const Library = () => {
+const Library = ({leftSideBar}) => {
   return (
-    <div>Library</div>
+    <div className='flex'>
+        {leftSideBar?<LeftSideBar/>:<LeftSideBar1/>}
+       
+    </div>
   )
 }
 

@@ -1,8 +1,10 @@
 import React from 'react'
 import LeftSideBar from '../../Components/LeftSideBar/LeftSideBar'
 import vidss from '../Home/sample.mp4'
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import LikeWatchLaterSaveBtn from './LikeWatchLaterSaveBtn';
+import Comments from '../../Components/Comments/Comments';
+import MoreVideos from '../../Components/MoreVideos/MoreVideos';
 
 const VideoPage = ({leftSideBar}) => {
   const vids = [
@@ -43,29 +45,42 @@ const VideoPage = ({leftSideBar}) => {
   const vv = vids.filter((q) => q._id ==vid)[0];
  
   return (
-    <div className='flex  '>
+    <div className='flex'>
       {leftSideBar?<LeftSideBar/>:""}
-      <div className='sm:w-full md:w-3/5 md:mt-1 md:ml-20'  >
+      <div className='lg:w-full md:w-full md:m-10 lg:m-4'  >
         <div className='flex-col '>
            <video src={vv.video_src} controls className='md:rounded-xl '/>
            <h2 className='font-bold text-xl'>{vv.title}</h2>
            <div className='flex flex-wrap text-sm justify-between'>
             <div className='flex mt-2'>
-              <div className="cursor-pointer relative w-7 h-7 mb-2 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                  <svg className="absolute w-9 h-9 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path></svg>
-              </div>
-              <div className='ml-2 font-bold'>{vv.Uploder}</div>
-              <div className='h-1 w-1 bg-gray-500 mt-2.5 ml-4 mr-1  rounded-full'></div>
+              <NavLink to={`/channel/${vv.Chanel} `} className='flex'>
+                <div className="cursor-pointer relative w-7 h-7 mb-2 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                    <svg className="absolute w-9 h-9 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path></svg>
+                </div>
+                <div className='ml-2 font-bold'>{vv.Uploder}</div>
+              </NavLink>
+              <div className='h-1 w-1 bg-gray-500 mt-2.5 ml-3 mr-1  rounded-full'></div>
               <div >3views</div>
-              <div className='h-1 w-1 bg-gray-500 mt-2.5 ml-4 mr-1 rounded-full'></div>
+              <div className='h-1 w-1 bg-gray-500 mt-2.5 ml-3 mr-1 rounded-full'></div>
               <div >8 months ago</div>
             </div>
             <LikeWatchLaterSaveBtn vv={vv}/>
           </div>
+          <Comments />
+          <div className='flex-col md:hidden lg:hidden'>
+            <h3 className='flex ml-2'>See More Videos</h3>
+            <MoreVideos/>
+          </div>
         </div>
+       
       </div>
-      <div className='hidden md:block ml-8'>More Videos</div>
+      <div className='flex-col hidden md:block lg:block'>
+        <h3 className='ml-4 mt-4'>See More Videos</h3>
+        <MoreVideos/>
+      </div>
     </div>
+    
+    
   )
 }
 

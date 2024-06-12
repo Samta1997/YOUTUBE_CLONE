@@ -25,8 +25,8 @@ const LikeWatchLaterSaveBtn = ({vv}) => {
 
 
   return (
-    <div className="flex justify-center gap-3">
-        <div className="bg-gradient-to-r text-white from-indigo-500 via-purple-500 to-pink-500 flex  gap-2 justify-between px-2 items-center rounded-full">
+    <div className="flex justify-center gap-5 h-8">
+        <div className="cursor-pointer hover:from-pink-500 hover:to-yellow-500 bg-gradient-to-r text-white  from-indigo-500 via-purple-500 to-pink-500 flex  gap-2 justify-between px-2 items-center rounded-full">
             <div >
                 {likeBtn?
                 <>
@@ -36,19 +36,20 @@ const LikeWatchLaterSaveBtn = ({vv}) => {
                 </>
                 :<AiOutlineLike className="h-6 w-6" onClick={handleLike}/>}
             </div>
+            <div className="h-8 w-0.5 bg-black"></div>
             <div >
                 {disLikeBtn?<AiFillDislike className="h-6 w-6" onClick={handleDislike}/>:<AiOutlineDislike className="h-6 w-6" onClick={handleDislike}/>}
             </div>
         </div>
-        <div className="bg-gradient-to-r text-white from-indigo-500 via-purple-500 to-pink-500 flex  px-2 items-center rounded-full">
+        <div className="cursor-pointer hover:from-pink-500 hover:to-yellow-500 bg-gradient-to-r text-white from-indigo-500 via-purple-500 to-pink-500 flex  px-2 items-center rounded-full">
             <FaShare/>
             <div className="ml-2">Share</div>
         </div>
-        <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex  text-white px-2 items-center rounded-full">
+        <div className="cursor-pointer hover:from-pink-500 hover:to-yellow-500 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex  text-white px-2 items-center rounded-full">
             <FaDownload/>
             <div className="ml-2">Download</div>
         </div>
-        <div className="bg-gradient-to-r text-white from-indigo-500 via-purple-500 to-pink-500 flex  px-2 items-center rounded-full">
+        <div className="cursor-pointer hover:from-pink-500 hover:to-yellow-500 bg-gradient-to-r text-white from-indigo-500 via-purple-500 to-pink-500 flex  px-2 items-center rounded-full">
         {saveVideo ? (
             <>
               <MdPlaylistAddCheck onClick={handleSave}/>

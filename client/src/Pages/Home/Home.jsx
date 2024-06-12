@@ -41,7 +41,7 @@ const Home = ({leftSideBar}) => {
   
   return (
     <div className='flex'>
-      {leftSideBar?<LeftSideBar/>:<LeftSideBar1/>}
+        {leftSideBar?<LeftSideBar/>:<LeftSideBar1/>}
        <section className="inline-block m-2">
             <ShowVideoGrid vids={vids}/>
       </section>

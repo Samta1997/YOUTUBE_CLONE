@@ -49,10 +49,10 @@ const LeftSideBar = () => {
 
         <div className='flex-col p-2 font-bold'>
             <div className="mb-2">You</div>
-            <NavLink to={'/channel'}>
+            <NavLink to={'/library'}>
             <div className='py-2 px-1 flex hover:bg-gradient-to-l hover:from-pink-500 hover:to-yellow-500 rounded-lg  font-normal visited:font-bold'>
                 <MdOutlineVideoLibrary className="mr-3 text-2xl"/>
-                Your Channel
+                Library
             </div>
             </NavLink>
             <NavLink to={'/history'}>
