@@ -1,7 +1,5 @@
 import LeftSideBar from "../../Components/LeftSideBar/LeftSideBar"
 import LeftSideBar1 from "../../Components/LeftSideBar/LeftSideBar1"
-import ShowVideoGridCol from "../../Components/ShowVideoGrid/ShowVideoGridCol";
-import History from "../History/History";
 import ShowVideoGrid from "../../Components/ShowVideoGrid/ShowVideoGrid";
 import vid from '../Home/sample.mp4'
 import { FaHistory } from "react-icons/fa";

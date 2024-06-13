@@ -29,13 +29,13 @@ const Navbar = ({leftSideBar,setLeftSideBar}) => {
     setShowSignInForm(!showSignInForm);
   };
 
-//   const CurrentUser=null;
-    const CurrentUser = {
-    result: {
-      email: "abzxy50312@gmail.com",
-      joinedOn: "2222-07-15T09:57:23.489Z",
-    },
-  };
+  const CurrentUser=null;
+//     const CurrentUser = {
+//     result: {
+//       email: "abzxy50312@gmail.com",
+//       joinedOn: "2222-07-15T09:57:23.489Z",
+//     },
+//   };
   
   return (
     <nav>
