@@ -112,7 +112,7 @@ const Navbar = ({leftSideBar,setLeftSideBar}) => {
                     <>
                         <CiSearch className='cursor-pointer h-6 w-6 md:hidden'onClick={toggleSearch}/>
                       
-                        {!CurrentUser?(<>
+                        {CurrentUser?(<>
                 
                             <NavLink to={'/videocall'}>
                                 <MdVideoCall className='h-8 w-8 cursor-pointer' />
